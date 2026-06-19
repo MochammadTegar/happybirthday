@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cipla Cantik</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/amplop.css">
+</head>
+<body>
+
+  <div class="bg-photo"></div>
+  <div class="bg-overlay"></div>
+
+  <a href="../index.html" class="btn-restart">↺ mulai ulang</a>
+
+  <div class="main">
+    <h1 class="headline">You got the message!</h1>
+
+    <div class="envelope-wrap">
+      <div class="env-svg-wrap">
+
+        <svg viewBox="0 0 500 340" xmlns="http://www.w3.org/2000/svg" style="border-radius:8px; overflow:hidden;">
+          <defs>
+            <!-- Body maroon -->
+            <linearGradient id="bodyGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+              <stop offset="0%"   stop-color="#7a1228"/>
+              <stop offset="100%" stop-color="#4e0a18"/>
+            </linearGradient>
+
+            <!-- Flap atas — sedikit lebih gelap -->
+            <linearGradient id="flapTopGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%"   stop-color="#5c0e1e"/>
+              <stop offset="100%" stop-color="#6e1022"/>
+            </linearGradient>
+
+            <!-- Lipatan kiri — bayangan subtle -->
+            <linearGradient id="foldLeftGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+              <stop offset="0%"   stop-color="#3d0810" stop-opacity="1"/>
+              <stop offset="100%" stop-color="#5c0e1e" stop-opacity="1"/>
+            </linearGradient>
+
+            <!-- Lipatan kanan — highlight subtle -->
+            <linearGradient id="foldRightGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+              <stop offset="0%"   stop-color="#82142a" stop-opacity="1"/>
+              <stop offset="100%" stop-color="#5e1020" stop-opacity="1"/>
+            </linearGradient>
+
+            <!-- Lipatan bawah -->
+            <linearGradient id="foldBottomGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+              <stop offset="0%"   stop-color="#600e1e"/>
+              <stop offset="100%" stop-color="#420810"/>
+            </linearGradient>
+
+            <clipPath id="envClip">
+              <rect x="0" y="0" width="500" height="340" rx="7" ry="7"/>
+            </clipPath>
+
+            <filter id="lineBlur">
+              <feGaussianBlur stdDeviation="0.6"/>
+            </filter>
+          </defs>
+
+          <g clip-path="url(#envClip)">
+
+            <!-- Body dasar -->
+            <rect x="0" y="0" width="500" height="340" fill="url(#bodyGrad)"/>
+
+            <!-- Lipatan kiri -->
+            <polygon points="0,0 0,340 250,170" fill="url(#foldLeftGrad)"/>
+            <!-- Lipatan kanan -->
+            <polygon points="500,0 500,340 250,170" fill="url(#foldRightGrad)"/>
+            <!-- Lipatan bawah -->
+            <polygon points="0,340 500,340 250,170" fill="url(#foldBottomGrad)"/>
+            <!-- Flap atas -->
+            <polygon points="0,0 500,0 250,170" fill="url(#flapTopGrad)"/>
+
+            <!-- Garis lipatan — sangat subtle -->
+            <line x1="0"   y1="0"   x2="250" y2="170" stroke="rgba(0,0,0,0.18)" stroke-width="1.2" filter="url(#lineBlur)"/>
+            <line x1="500" y1="0"   x2="250" y2="170" stroke="rgba(0,0,0,0.15)" stroke-width="1.2" filter="url(#lineBlur)"/>
+            <line x1="0"   y1="340" x2="250" y2="170" stroke="rgba(0,0,0,0.18)" stroke-width="1.2" filter="url(#lineBlur)"/>
+            <line x1="500" y1="340" x2="250" y2="170" stroke="rgba(0,0,0,0.15)" stroke-width="1.2" filter="url(#lineBlur)"/>
+
+            <!-- Highlight tipis di tepi atas -->
+            <line x1="0" y1="1" x2="500" y2="1" stroke="rgba(255,255,255,0.10)" stroke-width="2"/>
+
+            <!-- Teks hint -->
+            <text
+              x="250" y="272"
+              text-anchor="middle"
+              font-family="'Cormorant Garamond', serif"
+              font-style="italic"
+              font-size="13.5"
+              fill="rgba(255,200,210,0.82)"
+              letter-spacing="1.2">Click the wax to open</text>
+
+          </g>
+        </svg>
+
+        <!-- WAX SEAL -->
+        <div class="wax">
+          <div class="wax-outer" id="waxSeal" role="button" tabindex="0" aria-label="Buka amplop">
+            <div class="wax-rim"></div>
+            <div class="wax-inner">
+              <div class="wax-pattern">♡</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const waxSeal = document.getElementById('waxSeal');
+
+    function bukaAmplop() {
+      window.location.href = 'utama.html';
+    }
+
+    waxSeal.addEventListener('click', bukaAmplop);
+    waxSeal.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        bukaAmplop();
+      }
+    });
+  </script>
+
+</body>
+</html>

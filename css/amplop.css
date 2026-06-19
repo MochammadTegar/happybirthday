@@ -1,0 +1,237 @@
+/* ══════════════════════════════════════
+   RESET
+   ══════════════════════════════════════ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ══════════════════════════════════════
+   BASE
+   ══════════════════════════════════════ */
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ══════════════════════════════════════
+   BACKGROUND
+   ══════════════════════════════════════ */
+.bg-photo {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: url('../img/bg2.jpg') center/cover no-repeat;
+}
+
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(160deg,
+    rgba(120,60,100,0.55) 0%,
+    rgba(80,30,70,0.45) 40%,
+    rgba(40,10,40,0.6) 100%);
+}
+
+/* ══════════════════════════════════════
+   TOMBOL RESTART
+   ══════════════════════════════════════ */
+.btn-restart {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 100;
+  color: rgba(255,220,230,.6);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  border: 1px solid rgba(255,220,230,.2);
+  border-radius: 20px;
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(6px);
+  transition: all .2s;
+}
+
+.btn-restart:hover {
+  color: rgba(255,220,230,.95);
+  border-color: rgba(255,220,230,.45);
+  background: rgba(255,255,255,.12);
+}
+
+/* ══════════════════════════════════════
+   LAYOUT UTAMA
+   ══════════════════════════════════════ */
+.main {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.headline {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(38px, 6vw, 80px);
+  color: #fff;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(255,255,255,.15);
+  text-align: center;
+}
+
+/* ══════════════════════════════════════
+   AMPLOP
+   ══════════════════════════════════════ */
+.envelope-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: floatIn 0.85s cubic-bezier(0.34,1.15,0.64,1) both;
+}
+
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(32px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.env-svg-wrap {
+  position: relative;
+  width: min(420px, 78vw);
+  transition: transform .35s ease, filter .35s ease;
+  filter:
+    drop-shadow(0 20px 36px rgba(0,0,0,.42))
+    drop-shadow(0 6px 12px rgba(0,0,0,.22))
+    drop-shadow(0 2px 4px rgba(0,0,0,.14));
+}
+
+.env-svg-wrap:hover {
+  transform: translateY(-5px);
+  filter:
+    drop-shadow(0 30px 46px rgba(0,0,0,.48))
+    drop-shadow(0 10px 18px rgba(0,0,0,.26));
+}
+
+.env-svg-wrap svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ══════════════════════════════════════
+   WAX SEAL — di titik tengah SVG (50%, 50%)
+   ══════════════════════════════════════ */
+.wax {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.wax-outer {
+  position: relative;
+  width: min(58px, 11vw);
+  height: min(58px, 11vw);
+  pointer-events: auto;
+  cursor: pointer;
+  transition: transform .2s ease;
+}
+
+.wax-outer:hover {
+  transform: scale(1.06);
+}
+
+.wax-outer:active {
+  transform: scale(0.96);
+}
+
+.wax-rim {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%,
+    #f8e272 0%, #ddb820 22%, #c09010 48%, #916808 72%, #604404 100%
+  );
+  box-shadow:
+    0 5px 16px rgba(0,0,0,.40),
+    0 2px 5px rgba(0,0,0,.24),
+    inset 0 4px 10px rgba(255,245,140,.38),
+    inset 0 -5px 12px rgba(0,0,0,.44);
+}
+
+/* Tepi bergerigi wax */
+.wax-rim::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #b88a0a 0deg,   #ecc428 18deg, #b88a0a 36deg,
+    #ecc428 54deg,  #b88a0a 72deg, #ecc428 90deg,
+    #b88a0a 108deg, #ecc428 126deg,#b88a0a 144deg,
+    #ecc428 162deg, #b88a0a 180deg,#ecc428 198deg,
+    #b88a0a 216deg, #ecc428 234deg,#b88a0a 252deg,
+    #ecc428 270deg, #b88a0a 288deg,#ecc428 306deg,
+    #b88a0a 324deg, #ecc428 342deg,#b88a0a 360deg
+  );
+  z-index: -1;
+  opacity: .55;
+  filter: blur(0.8px);
+}
+
+.wax-inner {
+  position: absolute;
+  inset: 9px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%,
+    #e8c028 0%, #c89810 38%, #a07006 68%, #6e4c04 100%
+  );
+  box-shadow:
+    inset 0 2px 6px rgba(255,230,80,.25),
+    inset 0 -3px 8px rgba(0,0,0,.40);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wax-pattern {
+  font-size: min(16px, 3vw);
+  color: rgba(35,18,0,.48);
+  line-height: 1;
+  user-select: none;
+}
+
+body {
+  opacity: 0;
+  transform: scale(1.05);
+  animation: pageIn 1s ease forwards;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}

@@ -1,0 +1,1036 @@
+@import url('https://fonts.googleapis.com/css2?family=Italianno&family=Caveat:wght@400;600&family=Dancing+Script:wght@600;700&family=Lora:ital,wght@0,400;1,400&family=Cormorant+Garamond:wght@400;500&display=swap');
+
+html, *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+
+/* ========================= */
+/* CURSOR CUSTOM             */
+/* ========================= */
+
+* { cursor: none; }
+
+.cursor {
+    position: fixed;
+    width: 22px;
+    height: 22px;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+}
+
+.cursor::before {
+    content: '♡';
+    position: absolute;
+    font-size: 20px;
+    color: rgba(160, 184, 232, 0.85);
+    top: 0; left: 0;
+    line-height: 1;
+    transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.cursor.click::before {
+    transform: scale(1.5);
+    color: #fff;
+}
+
+
+/* ========================= */
+/* HOME SECTION              */
+/* ========================= */
+
+.home {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #1a2e5a url('../img/ber2.png') center center / cover no-repeat;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .15);
+}
+
+.home-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    padding-bottom: 20px;
+}
+
+.happy,
+.birthday,
+.cantik {
+    font-family: 'Italianno', cursive;
+    color: white;
+    font-weight: 400;
+    opacity: 0;
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, .35),
+        0 8px 25px rgba(0, 0, 0, .25);
+    padding-bottom: 0.15em;
+}
+
+.happy    { font-size: 8rem;  line-height: 1.15; margin-left: 5px; }
+.birthday { font-size: 10rem; line-height: 1.1; }
+.cantik   { font-size: 8rem;  line-height: 1.1; margin-left: 90px; }
+
+.heart {
+    font-size: .65em;
+    margin-left: 10px;
+    position: relative;
+    top: 7px;
+}
+
+
+/* ========================= */
+/* ANIMASI TEXT HOME         */
+/* ========================= */
+
+.home-content.show .happy {
+    animation: happySlideUp 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.birthday {
+    white-space: nowrap;
+    padding-bottom: 0.25em;
+    margin-bottom: -0.25em;
+}
+
+.home-content.show .birthday {
+    animation: birthdaySlideLeft 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.home-content.show .cantik {
+    animation: cantikDrop 2.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes happySlideUp {
+    from { opacity: 0; transform: translateY(80px) scale(0.9); filter: blur(10px); }
+    to   { opacity: 1; transform: translateY(0)    scale(1);   filter: blur(0); }
+}
+
+@keyframes birthdaySlideLeft {
+    from { opacity: 0; transform: translateX(-80px) skewX(6deg); filter: blur(8px); }
+    to   { opacity: 1; transform: translateX(0)     skewX(0deg); filter: blur(0); }
+}
+
+@keyframes cantikDrop {
+    from { opacity: 0; transform: translateY(-60px) scale(1.1); filter: blur(8px); }
+    to   { opacity: 1; transform: translateY(0)     scale(1);   filter: blur(0); }
+}
+
+
+/* ========================= */
+/* LETTER SECTION            */
+/* ========================= */
+
+.letter-section {
+    background: #1a2e5a url('../img/bgaja.webp') center center / cover no-repeat;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 1rem;
+}
+
+/* Stars */
+.stars-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.7);
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.15; }
+    50%       { opacity: 1; }
+}
+
+
+/* ========================= */
+/* KELOPAK JATUH             */
+/* ========================= */
+
+.petals-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    top: -30px;
+    color: rgba(255, 182, 193, 0.8);
+    animation: petalFall linear forwards;
+    user-select: none;
+}
+
+@keyframes petalFall {
+    0%   { transform: translateY(0)    rotate(0deg)   translateX(0px); opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 0.6; }
+    100% { transform: translateY(110vh) rotate(360deg) translateX(40px); opacity: 0; }
+}
+
+
+/* ========================= */
+/* LETTER LAYOUT             */
+/* ========================= */
+
+.letter-layout {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1000px;
+    width: 92%;
+    position: relative;
+    z-index: 3;
+}
+
+
+/* ========================= */
+/* SCROLL REVEAL             */
+/* ========================= */
+
+.reveal-left,
+.reveal-right {
+    will-change: opacity, transform;
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 5s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s,
+                transform 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+
+.reveal-left.revealed,
+.reveal-right.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* ========================= */
+/* POLAROID (LETTER SECTION) */
+/* ========================= */
+
+.polaroid-wrap {
+    flex-shrink: 0;
+    position: relative;
+    width: 380px;
+    height: 440px;
+}
+
+.pol {
+    background: #fff;
+    padding: 10px 10px 34px;
+    box-shadow: 3px 6px 18px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    cursor: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pol:hover {
+    box-shadow: 6px 14px 30px rgba(0, 0, 0, 0.65);
+    z-index: 10 !important;
+    transform: rotate(0deg) scale(1.06) !important;
+}
+
+.pol-1 {
+    width: 220px;
+    transform: rotate(-10deg);
+    top: 0; left: 0;
+    z-index: 2;
+}
+
+.pol-2 {
+    width: 240px;
+    transform: rotate(7deg);
+    bottom: 0; right: 0;
+    z-index: 3;
+}
+
+.pol-photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.pol-caption {
+    font-family: 'Caveat', cursive;
+    font-size: 13px;
+    color: #555;
+    text-align: center;
+    margin-top: 6px;
+    line-height: 1;
+}
+
+
+/* ========================= */
+/* LETTER CARD               */
+/* ========================= */
+
+.letter-card {
+    background: #f8f6f0;
+    border-radius: 3px;
+    padding: 2.2rem 2.8rem 2.4rem;
+    flex: 1;
+    position: relative;
+    box-shadow:
+        4px 6px 28px rgba(0, 0, 0, 0.5),
+        2px 3px 0 #e0dbd0,
+        1px 1px 0 #d5cfc5;
+    animation: letter-float 4s ease-in-out infinite;
+}
+
+@keyframes letter-float {
+    0%, 100% { transform: translateY(0px) rotate(-0.4deg); }
+    50%       { transform: translateY(-6px) rotate(0.4deg); }
+}
+
+/* Wax Seal */
+.wax-seal {
+    position: absolute;
+    top: -22px;
+    right: 28px;
+    width: 52px;
+    height: 52px;
+    filter: drop-shadow(0 3px 8px rgba(0,0,0,0.35));
+    animation: seal-bob 3s ease-in-out infinite;
+}
+
+@keyframes seal-bob {
+    0%, 100% { transform: rotate(-6deg) translateY(0); }
+    50%       { transform: rotate(-6deg) translateY(-4px); }
+}
+
+.letter-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1a2e5a;
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 1.2rem;
+}
+
+.letter-body {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: #2c2c2c;
+    text-align: center;
+}
+
+.letter-body p { margin-bottom: 0.8rem; }
+.letter-body p:last-child { margin-bottom: 0; }
+
+.letter-divider {
+    width: 55%;
+    margin: 0.9rem auto;
+    border: none;
+    border-top: 1px solid #c9c3b5;
+}
+
+.open-btn {
+    display: block;
+    margin: 1.4rem auto 0;
+    padding: 0.5rem 1.8rem;
+    background: transparent;
+    border: 1px solid #1a2e5a;
+    border-radius: 20px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+    color: #1a2e5a;
+    cursor: none;
+    transition: background 0.25s, color 0.25s;
+}
+
+.open-btn:hover { background: #1a2e5a; color: #fff; }
+
+/* Floating hearts */
+.heart-float {
+    position: absolute;
+    pointer-events: none;
+    font-size: 16px;
+    opacity: 0;
+    animation: float-up 2.6s ease-out forwards;
+}
+
+@keyframes float-up {
+    0%   { opacity: 0.9; transform: translateY(0) scale(1); }
+    100% { opacity: 0;   transform: translateY(-120px) scale(0.4); }
+}
+
+
+/* ========================= */
+/* MODAL                     */
+/* ========================= */
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 12, 45, 0.85);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.open { display: flex; }
+
+.modal-box {
+    background: #f8f6f0;
+    border-radius: 8px;
+    padding: 2rem 2.4rem;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    text-align: center;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #2c2c2c;
+}
+
+.modal-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #1a2e5a;
+    margin-bottom: 0.8rem;
+}
+
+.modal-note {
+    margin-top: 1rem;
+    font-family: sans-serif;
+    font-style: normal;
+    font-size: 0.78rem;
+    color: #999;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px; right: 14px;
+    background: none; border: none;
+    font-size: 20px; color: #aaa;
+    cursor: none; line-height: 1;
+}
+
+.modal-close:hover { color: #444; }
+
+
+/* ========================= */
+/* RESPONSIVE — HOME & LETTER */
+/* ========================= */
+
+@media (max-width: 768px) {
+    * { cursor: auto; }
+    .cursor { display: none; }
+
+    /* FIX: foto polaroid sekarang TETAP MUNCUL di mobile,
+       ditumpuk kecil di atas letter card (bukan di samping) */
+    .letter-layout {
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.6rem;
+    }
+    .polaroid-wrap {
+        width: 210px;
+        height: 240px;
+        margin: 0 auto;
+    }
+    .pol-1 { width: 125px; }
+    .pol-2 { width: 135px; }
+
+    .letter-card { padding: 1.4rem 1.4rem 1.6rem; }
+    .letter-title { font-size: 2.2rem; }
+    .letter-body  { font-size: 0.85rem; }
+    .happy    { font-size: 4.5rem; }
+    .birthday { font-size: 5.5rem; }
+    .cantik   { font-size: 4.5rem; margin-left: 40px; }
+    .open-btn, .modal-close { cursor: pointer; }
+}
+
+/* FIX BARU: layar sangat kecil (≤480px, contoh iPhone SE) supaya teks
+   "Birthday" tidak mepet/overflow ke tepi layar */
+@media (max-width: 480px) {
+    .happy    { font-size: 3.2rem; margin-left: 0; }
+    .birthday { font-size: 3.8rem; }
+    .cantik   { font-size: 3.2rem; margin-left: 14px; }
+    .letter-title { font-size: 1.9rem; }
+    .letter-card { padding: 1.2rem 1rem 1.4rem; }
+}
+
+
+/* ========================= */
+/* POLAROID SECTION          */
+/* ========================= */
+
+.polaroid-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pol-bg-layer {
+    position: absolute;
+    inset: -20px;
+    background-image: url('../img/bg11.jpeg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px) brightness(0.80) grayscale(0.1);
+    transform: scale(1.08);
+}
+
+.pol-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.pol-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 100%;
+    padding: 2rem 3rem 3rem;
+}
+
+.pol-section-title {
+    font-family: 'Caveat', cursive;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+
+.pol-row { display: none; }
+
+.pol-canvas {
+    position: relative;
+    width: 100%;
+    height: 620px;
+}
+
+.polaroid-section .polaroid {
+    background: #f8f5ec;
+    padding: 10px 10px 38px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.55), 0 2px 6px rgba(0,0,0,0.3);
+    width: 220px;
+    position: absolute;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0s;
+    cursor: none;
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+.polaroid-section .polaroid.pol-appear {
+    animation: polaroidPopIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes polaroidPopIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.7) rotate(-8deg);
+        filter: blur(6px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0deg);
+        filter: blur(0);
+    }
+}
+
+.polaroid-section .polaroid:hover {
+    transform: rotate(0deg) translateY(-14px) scale(1.06) !important;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.65);
+    z-index: 20 !important;
+}
+
+.polaroid-section .polaroid img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+}
+
+.pol-caption-new {
+    font-family: 'Caveat', cursive;
+    font-size: 15px;
+    color: #333;
+    text-align: center;
+    margin-top: 8px;
+    line-height: 1.3;
+}
+
+.polaroid-section .p1 {
+    top: 20px; left: 12%;
+    transform: rotate(0deg);
+    z-index: 2;
+}
+.polaroid-section .p2 {
+    top: 0px; left: 50%;
+    margin-left: -110px;
+    transform: rotate(0deg);
+    z-index: 3;
+}
+.polaroid-section .p3 {
+    top: 20px; right: 12%;
+    transform: rotate(0deg);
+    z-index: 2;
+}
+.polaroid-section .p4 {
+    top: 250px; left: 25%;
+    transform: rotate(0deg);
+    z-index: 4;
+}
+.polaroid-section .p5 {
+    top: 250px; right: 25%;
+    transform: rotate(0deg);
+    z-index: 4;
+}
+
+/* ============================================================
+   RESPONSIVE — POLAROID SECTION (FIXED)
+   Dulu pakai left/top piksel tetap → di HP < 375px foto ke-3
+   bisa terpotong/keluar layar. Sekarang diganti jadi flex-wrap
+   yang otomatis menyesuaikan lebar layar berapa pun.
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .pol-content{
+        padding: 2rem 1rem 3rem;
+    }
+
+    .pol-section-title { font-size: 2rem; }
+
+    .pol-canvas {
+        position: static;          /* FIX: lepas dari absolute positioning */
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 18px 14px;
+        padding: 10px 8px 0;
+    }
+
+    .polaroid-section .polaroid {
+        position: static !important;   /* FIX: gak lagi pakai left/top px */
+        width: 130px;
+        padding: 8px 8px 30px;
+        transform: none !important;    /* reset rotasi manual, biar rapi grid */
+        margin: 0 !important;
+        z-index: auto !important;
+    }
+
+    .pol-caption-new { font-size: 13px; }
+}
+
+@media (max-width: 480px) {
+    .polaroid-section .polaroid { width: 110px; padding: 6px 6px 26px; }
+    .pol-caption-new { font-size: 12px; }
+}
+
+/* ============================================================
+   QUIZ SECTION — FIXED
+   ============================================================ */
+
+.quiz-section{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+    position: relative;
+}
+
+.quiz-card{
+    width: 100%;
+    max-width: 650px;
+    padding: 40px;
+    border-radius: 24px;
+    background: rgba(255,255,255,.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,.08);
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,.35);
+}
+
+.quiz-title{
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+.quiz-question{
+    color: #f5f1eb;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.quiz-options{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.quiz-options button{
+    padding: 15px;
+    border: 1px solid rgba(201, 168, 118, 0.5);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #f0e4d8;
+    cursor: pointer;
+    transition: .3s;
+    backdrop-filter: blur(4px);
+}
+
+.quiz-options button:hover{
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(201, 168, 118, 0.9);
+}
+
+.quiz-options button:disabled{
+    opacity: .5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.quiz-feedback{
+    margin-top: 25px;
+    color: #fff;
+    min-height: 30px;
+    font-size: 1rem;
+}
+
+.quiz-btn{
+    margin-top: 20px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    background: #1c2f5c;
+    color: #fff;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.quiz-btn:hover{
+    background: #28437f;
+}
+
+.quiz-wrapper{
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+        url('../img/new.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* ============================================================
+   FINAL QUESTION SECTION — FIXED
+   ============================================================ */
+
+.final-question{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background: transparent;
+}
+
+.final-question h2{
+    color: #f5f1eb;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 750px;
+    line-height: 1.4;
+}
+
+.answer-box{
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 250px;
+    margin: 0 auto;
+}
+
+#yesBtn,
+#noBtn{
+    position: absolute;
+    padding: 15px 35px;
+    border: 1px solid rgba(201, 168, 118, 0.5);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #f0e4d8;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+    white-space: nowrap;
+    backdrop-filter: blur(4px);
+}
+
+#yesBtn:hover,
+#noBtn:hover{
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(201, 168, 118, 0.9);
+    transform: translateY(-3px);
+}
+
+#yesBtn{
+    left: 80px;
+    top: 100px;
+}
+
+#noBtn{
+    left: 280px;
+    top: 100px;
+}
+
+.final-title{
+    color: #f5f1eb;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.final-text{
+    color: #fff;
+    text-align: center;
+    line-height: 1.8;
+    max-width: 600px;
+    font-size: 1.1rem;
+}
+
+.final-next-btn{
+    margin-top: 30px;
+    padding: 15px 35px;
+    border: 1px solid rgba(201, 168, 118, 0.5);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #f0e4d8;
+    cursor: pointer;
+    transition: .3s;
+    backdrop-filter: blur(4px);
+}
+
+.final-next-btn:hover{
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(201, 168, 118, 0.9);
+    transform: translateY(-3px);
+}
+
+#escapeMessage{
+    margin-top: 25px;
+    min-height: 30px;
+    color: #f5f1eb;
+    font-size: 1rem;
+    font-style: italic;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+#escapeMessage.show{
+    animation: messagePop 0.6s ease forwards;
+}
+
+@keyframes messagePop{
+    0%{ opacity: 0; transform: translateY(12px) scale(0.98); filter: blur(4px); }
+    100%{ opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+
+/* ============================================================
+   RESPONSIVE — QUIZ & FINAL SECTION
+   ============================================================ */
+
+@media (max-width: 768px){
+
+    .quiz-section{
+        padding: 60px 16px;
+    }
+
+    .quiz-card{
+        padding: 25px 20px;
+        border-radius: 18px;
+    }
+
+    .quiz-title{
+        font-size: 1.5rem;
+    }
+
+    .quiz-question{
+        font-size: 1rem;
+    }
+
+    .quiz-options button{
+        padding: 13px;
+        font-size: 0.95rem;
+    }
+
+    .final-question{
+        padding: 40px 16px;
+    }
+
+    .final-question h2{
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+    }
+
+    .answer-box{
+        max-width: 300px;
+        height: 180px;
+    }
+
+    #yesBtn,
+    #noBtn{
+        padding: 12px 22px;
+        font-size: 0.9rem;
+    }
+
+    #yesBtn{
+        left: 10px;
+        top: 60px;
+    }
+
+    #noBtn{
+        left: 150px;
+        top: 60px;
+    }
+
+    .final-title{
+        font-size: 2rem;
+    }
+
+    .final-text{
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 380px){
+    /* FIX BARU: HP super sempit (320–380px) biar tombol gak mepet/numpuk */
+    .answer-box{
+        max-width: 260px;
+        height: 200px;
+    }
+    #yesBtn{ left: 0px; top: 40px; }
+    #noBtn{ left: 110px; top: 40px; }
+    #yesBtn, #noBtn{ padding: 10px 16px; font-size: 0.82rem; }
+}
+
+
+/* ============================================================
+   ENDING MODAL (POPUP KADO LUCU)
+   ============================================================ */
+
+.ending-modal-overlay{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 12, 45, .9);
+    z-index: 300;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.ending-modal-overlay.open{ display: flex; }
+
+.ending-modal-box{
+    position: relative;
+    max-width: 380px;
+    width: 100%;
+    animation: endingPopIn .4s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+@keyframes endingPopIn{
+    from{ opacity: 0; transform: scale(.85); }
+    to{ opacity: 1; transform: scale(1); }
+}
+
+.ending-modal-img{
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .6);
+    display: block;
+}
+
+.ending-modal-close{
+    position: absolute;
+    top: -14px; right: -14px;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: #fff;
+    color: #333;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .3);
+}
+
+/* FIX BARU: di HP, tombol close jangan terlalu nempel ke tepi overlay */
+@media (max-width: 480px){
+    .ending-modal-close{
+        top: -10px;
+        right: -6px;
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+}

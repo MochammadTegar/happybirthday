@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Cantik</title>
+    <link rel="stylesheet" href="../css/utama.css">
+</head>
+<body>
+
+<div class="petals-bg" id="petalsBg"></div>
+
+<!-- ── CURSOR CUSTOM ── -->
+<div class="cursor" id="cursor"></div>
+
+<!-- ── MUSIK ── -->
+<audio id="bgMusic" src="../audio/music1.mp3" loop></audio>
+
+<!-- ── HOME SECTION ── -->
+<section class="home" id="home">
+    <div class="overlay"></div>
+    <div class="home-content">
+        <span class="happy">Happy</span>
+        <span class="birthday">Birthday</span>
+        <span class="cantik">
+            Cantik.<span class="heart">♡</span>
+        </span>
+    </div>
+</section>
+
+
+<!-- ── LETTER SECTION ── -->
+<section class="letter-section" id="letter">
+  <div class="stars-bg" id="starsBg"></div>
+
+  <!-- Main layout -->
+  <div class="letter-layout">
+
+    <!-- Polaroid stack -->
+    <div class="polaroid-wrap reveal-left">
+      <div class="pol pol-1">
+        <img src="../img/sv1.jpeg" alt="foto kamu" class="pol-photo">
+        <p class="pol-caption">cipla cantik</p>
+      </div>
+      <div class="pol pol-2">
+        <img src="../img/sv2.jpeg" alt="berdua" class="pol-photo">
+        <p class="pol-caption">♡♡♡</p>
+      </div>
+    </div>
+
+    <!-- Letter card -->
+    <div class="letter-card reveal-right" id="letterCard">
+
+      <!-- Wax seal -->
+      <div class="wax-seal">
+        <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="30" cy="30" r="28" fill="#1a2e5a" stroke="#2a4a8a" stroke-width="1.5"/>
+          <circle cx="30" cy="30" r="22" fill="none" stroke="#4466aa" stroke-width="0.8" stroke-dasharray="3,2"/>
+          <text x="30" y="35" text-anchor="middle" font-size="18" fill="#a0b8e8" font-family="serif">♡</text>
+        </svg>
+      </div>
+
+      <h1 class="letter-title">A letter for you</h1>
+
+      <div class="letter-body">
+        <p>
+          Selamat ulang tahun, sayang ♡<br>
+          Hari ini hari spesial banget buat kamu<br>
+          Semoga semua yang kamu harapkan bisa berjalan<br>
+          Dengan baik, dan semoga harimu dipenuhi hal-hal<br>
+          Yang bikin kamu seneng dan nyaman.
+        </p>
+        <p>
+          Makasi banyak karna kamu selalu ada, selalu<br>
+          Perhatian, dan jadi seseorang yang berarti <br>
+          Buat aku. Semoga di usia yang baru ini kamu <br>
+          Selalu sehat, bahagia, dan dikelilingi orang-orang<br>
+          yang sayang sama kamu.
+        </p>
+        <hr class="letter-divider">
+        <p>
+          enjoy your day, cantik.<br>
+          you deserve all the love in the world ♡
+        </p>
+      </div>
+
+      <button class="open-btn" id="openBtn">✉ buka pesan spesial</button>
+    </div>
+
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal-box">
+      <button class="modal-close" id="closeBtn">✕</button>
+      <p class="modal-title">for u cantik</p>
+      <p>
+        Aku bangga banget punya cewe kaya kamu Sayang
+        jangan pernah berubah ya tetep jadi Orang yang
+        aku sayang banget dan kita Perjuangin bareng-bareng
+        ya semua yang jadi Wishlist kita. 
+      </p>
+      <p class="modal-note">— ilysm ♡</p>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ── POLAROID SECTION ── -->
+<section class="polaroid-section" id="polaroid">
+    <div class="pol-bg-layer"></div>
+    <div class="pol-bg-overlay"></div>
+    <div class="pol-content">
+        <h2 class="pol-section-title">My Girlfriend</h2>
+        <div class="pol-canvas">
+            <div class="polaroid p1">
+                <img src="../img/1.jpeg" alt="foto 1" />
+                <p class="pol-caption-new">♡♡</p>
+            </div>
+            <div class="polaroid p2">
+                <img src="../img/2.jpeg" alt="foto 2" />
+                <p class="pol-caption-new">♡♡</p>
+            </div>
+            <div class="polaroid p3">
+                <img src="../img/3.jpeg" alt="foto 3" />
+                <p class="pol-caption-new">♡♡</p>
+            </div>
+            <div class="polaroid p4">
+                <img src="../img/4.jpeg" alt="foto 4" />
+                <p class="pol-caption-new">♡♡</p>
+            </div>
+            <div class="polaroid p5">
+                <img src="../img/5.jpeg" alt="foto 5" />
+                <p class="pol-caption-new">♡♡</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── QUIZ SECTION ── -->
+<section class="quiz-wrapper">
+
+    <section class="quiz-section" id="quiz">
+
+        <div class="quiz-card">
+            <h2 class="quiz-title">♡ Little Quiz ♡</h2>
+
+            <p class="quiz-question" id="question">
+                Jangan sampe salah
+            </p>
+
+            <div class="quiz-options" id="options">
+                <!-- diisi JS -->
+            </div>
+
+            <p class="quiz-feedback" id="feedback"></p>
+
+            <button id="nextBtn" class="quiz-btn" style="display:none;">
+                Pertanyaan Berikutnya
+            </button>
+        </div>
+
+    </section>
+
+    <section class="final-question">
+
+        <h2>
+            Bayangin kamu terjebak d sebuah pulau terpencil dan jauh dari pemukiman,
+            siapa orang yang kamu pilih buat nemenin dan siapa yang paling ganteng?
+        </h2>
+
+        <div class="answer-box">
+            <button id="yesBtn">M Tegar Efendi</button>
+            <button id="noBtn">Ikbal Ramadhan</button>
+        </div>
+
+        <p id="escapeMessage"></p>
+
+    </section>
+
+</section>
+<!-- ── POPUP KADO LUCU ── -->
+<div class="ending-modal-overlay" id="endingModal">
+    <div class="ending-modal-box">
+        <button class="ending-modal-close" id="endingModalClose">✕</button>
+        <img src="../img/kado-lucu.png" alt="kado lucu" class="ending-modal-img">
+    </div>
+</div>
+
+<script>
+/* ── CURSOR CUSTOM ── */
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top  = e.clientY + 'px';
+});
+document.addEventListener('mousedown', () => cursor.classList.add('click'));
+document.addEventListener('mouseup',   () => cursor.classList.remove('click'));
+
+/* ── HOME ANIMATION ── */
+const homeContent = document.querySelector('.home-content');
+
+window.addEventListener('load', () => {
+    homeContent.classList.add('show');
+});
+
+const homeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            homeContent.classList.remove('show');
+            void homeContent.offsetWidth;
+            homeContent.classList.add('show');
+        }
+    });
+}, { threshold: 0.3 });
+
+homeObserver.observe(document.getElementById('home'));
+
+/* ── MUSIK AUTOPLAY SAAT KLIK / SCROLL ── */
+const bgMusic = document.getElementById('bgMusic');
+bgMusic.volume = 0.4;
+
+function startMusic() {
+    if (!bgMusic.paused) return;
+    bgMusic.play().catch(err => console.log('ERROR:', err));
+}
+
+document.addEventListener('click', startMusic);
+document.addEventListener('wheel', startMusic);
+
+/* ── STARS ── */
+const starsBg = document.getElementById('starsBg');
+for (let i = 0; i < 55; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    const size = 1.5 + Math.random() * 2.8;
+    star.style.cssText = `
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        width: ${size}px;
+        height: ${size}px;
+        animation-duration: ${2 + Math.random() * 3}s;
+        animation-delay: ${Math.random() * 5}s;
+    `;
+    starsBg.appendChild(star);
+}
+
+/* ── KELOPAK JATUH ── */
+const petalsBg = document.getElementById('petalsBg');
+const petalSymbols = ['✿', '❀', '✾', '❁', '⚘'];
+
+function spawnPetal() {
+    const el = document.createElement('div');
+    el.className = 'petal';
+    el.textContent = petalSymbols[Math.floor(Math.random() * petalSymbols.length)];
+    const size  = 10 + Math.random() * 14;
+    const dur   = 6 + Math.random() * 8;
+    const delay = Math.random() * 4;
+    el.style.cssText = `
+        left: ${Math.random() * 100}%;
+        font-size: ${size}px;
+        animation-duration: ${dur}s;
+        animation-delay: ${delay}s;
+        opacity: ${0.3 + Math.random() * 0.4};
+    `;
+    petalsBg.appendChild(el);
+    setTimeout(() => el.remove(), (dur + delay) * 1000);
+}
+for (let i = 0; i < 20; i++) spawnPetal();
+setInterval(spawnPetal, 800);
+
+/* ── SCROLL REVEAL LETTER SECTION ── */
+/* Reset saat keluar viewport, animasi ulang saat masuk lagi */
+const revealEls = document.querySelectorAll('.reveal-left, .reveal-right');
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            /* Paksa reflow dulu supaya transition berjalan dari awal */
+            entry.target.classList.remove('revealed');
+            void entry.target.offsetWidth;
+            entry.target.classList.add('revealed');
+        } else {
+            entry.target.classList.remove('revealed');
+        }
+    });
+}, { threshold: 0.5 });
+revealEls.forEach(el => revealObserver.observe(el));
+
+/* ── FLOATING HEARTS ON LETTER CLICK ── */
+const letterCard = document.getElementById('letterCard');
+letterCard.addEventListener('click', (e) => {
+    if (e.target.id === 'openBtn') return;
+    const el = document.createElement('div');
+    el.className = 'heart-float';
+    el.textContent = '♡';
+    el.style.left = (e.offsetX + (Math.random() * 40 - 20)) + 'px';
+    el.style.top  = (e.offsetY - 10) + 'px';
+    letterCard.appendChild(el);
+    setTimeout(() => el.remove(), 2700);
+});
+
+/* ── MODAL ── */
+const modal    = document.getElementById('modal');
+const openBtn  = document.getElementById('openBtn');
+const closeBtn = document.getElementById('closeBtn');
+
+openBtn.addEventListener('click',  () => modal.classList.add('open'));
+closeBtn.addEventListener('click', () => modal.classList.remove('open'));
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.classList.remove('open');
+});
+
+/* ── POLAROID HOVER TILT ── */
+document.querySelectorAll('.polaroid-section .polaroid').forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+        const rect  = card.getBoundingClientRect();
+        const x     = e.clientX - rect.left;
+        const y     = e.clientY - rect.top;
+        const tiltX = ((y - rect.height / 2) / rect.height) * 8;
+        const tiltY = ((x - rect.width  / 2) / rect.width)  * -8;
+        card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-12px) scale(1.07)`;
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotate(0deg)';
+    });
+});
+
+/* ── POLAROID MUNCUL SATU PER SATU (STAGGERED REVEAL) ── */
+const polCards = document.querySelectorAll('.polaroid-section .polaroid');
+
+polCards.forEach((card) => {
+    /* hapus class animasi setelah selesai, supaya transform kembali
+       dikontrol oleh hover/tilt effect tanpa konflik dengan animation */
+    card.addEventListener('animationend', () => {
+        card.classList.remove('pol-appear');
+        card.style.opacity = '1';
+    });
+});
+
+const polSectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            polCards.forEach((card, i) => {
+                /* reset dulu biar animasi bisa diulang dari awal */
+                card.classList.remove('pol-appear');
+                card.style.opacity = '0';
+                void card.offsetWidth; /* force reflow */
+
+                setTimeout(() => {
+                    card.classList.add('pol-appear');
+                }, i * 250); /* delay 250ms antar foto */
+            });
+        } else {
+            /* keluar viewport → reset supaya animasi ulang saat scroll balik */
+            polCards.forEach(card => {
+                card.classList.remove('pol-appear');
+                card.style.opacity = '0';
+            });
+        }
+    });
+}, { threshold: 0.3 });
+
+polSectionObserver.observe(document.getElementById('polaroid'));
+
+/* ── QUIZ ── */
+
+const quizData = [
+{
+question: "Siapa yang paling ganteng?",
+options: [
+"Kamu",
+"Tegar Efendi",
+"Mochammad Tegar"
+],
+responses: [
+"Iya cukup aku uda tau ko.",
+"Eum malah d perjelas",
+"Sudah pasti"
+]
+},
+{
+question: "Apa yang paling kamu suka dari aku?",
+options: [
+"Ganteng nya aku",
+"Baiknya aku",
+"Goyangan aku"
+],
+responses: [
+"Sip mantap,emang aku uda curiga sih dari awal",
+"Iyadong kan yang jahatma kamu",
+"Eumm ah cuddle yuk"
+]
+},
+{
+question: "Siapa yang paling aku sayang?",
+options: [
+"Persib",
+"Cipla",
+"1933"
+],
+responses: [
+"Persib mah bahasa hate",
+"heum wanita besar itu lagi😏",
+"Off course baby"
+]
+}
+];
+
+
+let currentQuestion = 0;
+let score = 0;
+
+const questionEl = document.getElementById("question");
+const optionsEl = document.getElementById("options");
+const feedbackEl = document.getElementById("feedback");
+const nextBtn = document.getElementById("nextBtn");
+
+function loadQuestion(){
+
+const q = quizData[currentQuestion];
+
+questionEl.textContent = q.question;
+
+optionsEl.innerHTML = "";
+feedbackEl.textContent = "";
+nextBtn.style.display = "none";
+
+q.options.forEach((option,index)=>{
+
+    const btn = document.createElement("button");
+
+    btn.textContent = option;
+
+    btn.onclick = ()=>checkAnswer(index);
+
+    optionsEl.appendChild(btn);
+});
+
+}
+
+function checkAnswer(selected){
+
+document
+.querySelectorAll("#options button")
+.forEach(btn => btn.disabled = true);
+
+score++;
+
+feedbackEl.textContent =
+quizData[currentQuestion].responses[selected];
+
+nextBtn.style.display = "inline-block";
+
+}
+
+nextBtn.addEventListener("click",()=>{
+
+currentQuestion++;
+
+if(currentQuestion < quizData.length){
+
+    loadQuestion();
+
+}else{
+
+document.querySelector(".quiz-card").innerHTML = `
+    <h2 class="quiz-title">Quiz Selesai!</h2>
+
+    <p class="quiz-question">
+        Makasi ya uda mau jujur
+    </p>
+
+    <p class="quiz-feedback">
+        Love u ah buat kamu♡♡♡
+    </p>
+`;
+
+}
+
+});
+
+loadQuestion();
+
+/* ── FINAL QUESTION ── */
+
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const escapeMessage = document.getElementById("escapeMessage");
+
+let escapeCount = 0;
+
+function setEscapeMessage(text){
+    escapeMessage.classList.remove("show");
+
+    void escapeMessage.offsetWidth; // reset animasi
+
+    escapeMessage.textContent = text;
+    escapeMessage.classList.add("show");
+}
+
+noBtn.addEventListener("mouseenter", () => {
+
+    escapeCount++;
+
+    if (escapeCount === 4) {
+        setEscapeMessage("eumm ngejar apasii");
+    }
+
+    if (escapeCount === 8) {
+        setEscapeMessage("Udahlah... terima aja takdir nyaa");
+    }
+
+    if (escapeCount === 13) {
+        setEscapeMessage("Emang takdir nya kamutuh tergila gila sama aku");
+    }
+
+    const parent = document.querySelector(".answer-box");
+
+    const maxX = parent.clientWidth - noBtn.offsetWidth;
+    const maxY = parent.clientHeight - noBtn.offsetHeight;
+
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
+});
+
+yesBtn.addEventListener("click", () => {
+
+    document.querySelector(".final-question").innerHTML = `
+        <h2 class="final-title">wkwk love u!</h2>
+
+        <button class="final-next-btn" onclick="goToEnding()">
+            Next Klik ♡
+        </button>
+    `;
+});
+
+noBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+});
+
+function goToEnding() {
+    document.getElementById('endingModal').classList.add('open');
+}
+
+document.getElementById('endingModalClose').addEventListener('click', () => {
+    document.getElementById('endingModal').classList.remove('open');
+});
+
+document.getElementById('endingModal').addEventListener('click', (e) => {
+    if (e.target.id === 'endingModal') {
+        document.getElementById('endingModal').classList.remove('open');
+    }
+});
+</script>
+
+</body>
+</html>
