@@ -75,3 +75,18 @@ body.fade-out {
   opacity: 0;
   transform: scale(1.08);
 }
+
+/* ══════════════════════════════════════
+   RESPONSIVE — PROTEKSI TEKS DI HP SEMPIT
+   ══════════════════════════════════════ */
+.big-label {
+  max-width: 92vw;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 380px) {
+  .big-label.text {
+    font-size: clamp(32px, 9vw, 100px);
+    letter-spacing: 0.02em;
+  }
+}
